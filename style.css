@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*header*/
+
+header {
+    height: 70px;
+    padding: 20px;
+}
+
+header .logo img {
+    height:50px;
+    vertical-align: middle;
+}
+
+header::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.logo {
+    float: left;
+}
+
+.logo span {
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.difficolta {
+    float: right;
+    padding-right: 80px;
+    padding-top: 20px;
+}
+/*main*/
+
+main {
+    height: calc(100vh - 120px);
+    background-color: aquamarine;
+    padding-top: 50px;
+}
+
+.container {
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+#gioco {
+    height: 100%;
+}
+
+#gioco::after {
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.quadrato {
+    float: left;
+    border: solid 1px black;
+}
+
+.clicked {
+    background-color: rgb(55, 151, 211);
+}
+
+/*footer*/
+
+footer {
+    height: 50px;
+    vertical-align: middle;
+}
+
+footer span {
+    font-size: 20px;
+    padding-left: 30px;
+}
