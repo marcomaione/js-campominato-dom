@@ -68,6 +68,10 @@ main {
     background-color: rgb(55, 151, 211);
 }
 
+.bomb {
+    background-color: tomato;
+}
+
 /*footer*/
 
 footer {

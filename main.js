@@ -12,6 +12,7 @@ function play() {
 
     let numeroCelle;
     let cellePerRiga;
+    const tentativi = [];
 
     switch (difficolta) {
         case "facile":
@@ -66,9 +67,33 @@ function play() {
     function handleCellClick() {
         this.classList.add('clicked');
         console.log("hai premuto il numero" + this.innerText);
+
         // rimuovo la possibilita di cliccare piu volte la stessa casella
+
         this.removeEventListener('click' , handleCellClick );
+        const cell = parseInt(this.innerText);
+
+        if (bombe.includes(cell)) {
+            alert('hai preso una bomba');
+        } else {
+            tentativi.push(cell);
+
+        }
+        
+        console.log(tentativi)
     }
+}
+
+function terminaGioco() {
+    const quadrati = document.getElementsByClassName('quadrato');
+    for (let i = 0; i < quadrati.length; i ++) {
+        
+        if (bombe.includes(parseInt(quadrati[i].innerText))) {
+            quadrati[i].classList.add('bomb');
+
+        }
+    }
+
 }
 
 function generaBombe(numeroBombe, numeroCelle) {
