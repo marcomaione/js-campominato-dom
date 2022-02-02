@@ -3,6 +3,9 @@ document.getElementById('play').addEventListener('click', play);
 // funzione che gestisce il gioco
 
 function play() {
+
+    const NUMERO_BOMBE = 16
+
     console.log('Hai premuto play');
 
     const difficolta = document.getElementById('s-difficolta').value;
@@ -31,6 +34,9 @@ function play() {
     //reset del gioco
 
     generaCampoGioco(numeroCelle);
+    const bombe = generaBombe(NUMERO_BOMBE, numeroCelle);
+
+    console.log(bombe)
 
     function generaCampoGioco(numeroCelle) {
 
@@ -63,4 +69,24 @@ function play() {
         // rimuovo la possibilita di cliccare piu volte la stessa casella
         this.removeEventListener('click' , handleCellClick );
     }
+}
+
+function generaBombe(numeroBombe, numeroCelle) {
+
+    const bombeGenerate = [];
+
+    while (bombeGenerate.length < numeroBombe) {
+
+        const bomba = getRandomNumber(1, numeroCelle);
+
+        if (!bombeGenerate.includes(bomba)) {
+            bombeGenerate.push(bomba);
+        }
+    }
+    return bombeGenerate;
+
+}
+
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min +1)) + min;
 }
